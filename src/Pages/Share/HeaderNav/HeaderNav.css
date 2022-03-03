@@ -1,0 +1,10 @@
+.link-style{
+    text-decoration: none;
+    padding: 5px;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+.link-style:hover{
+    color: #f21679;
+    background-color: rgb(223, 196, 196);
+}
