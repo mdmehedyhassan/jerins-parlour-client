@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import antiAgeFace from '../../../Icon/anti-age-face.png';
 import hairColor from '../../../Icon/hair-color.png';
 import skinCare from '../../../Icon/skin-care.png';
@@ -29,15 +30,22 @@ const allServices = [
 ];
 
 const Services = () => {
+
     return (
-        <div className="container" style={{textAlign: "center", marginTop: '100px'}}>
-            <h2 style={{fontWeight: '800'}}>Our Awesome <span style={{color: '#f21679'}}>Services</span></h2>
+        <div className="container" style={{ textAlign: "center", marginTop: '100px' }}>
+            <h2 style={{ fontWeight: '800' }}>Our Awesome <span style={{ color: '#f21679' }}>Services</span></h2>
             <div className="row mt-5">
                 {
                     allServices.map(service => <Service key={service.id} service={service}></Service>)
                 }
             </div>
-            <button className="btn mt-3 mb-5" style={{background: '#f21679', color: 'white'}}>Explore more</button>
+            {
+                document.title === 'Services' ? null :
+                    <Link to="/services">
+                        <button className="btn mt-3 mb-5" style={{ background: '#f21679', color: 'white' }}>Explore more</button>
+                    </Link>
+            }
+
         </div>
     );
 };

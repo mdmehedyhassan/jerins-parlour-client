@@ -2,7 +2,7 @@ import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
-const Review = (props) => {
+const Reviews = (props) => {
     const { img, name, profession, description, star } = props.review;
     return (
         <div className="col-md-4 service-styled">
@@ -24,4 +24,4 @@ const Review = (props) => {
     );
 };
 
-export default Review;
+export default Reviews;

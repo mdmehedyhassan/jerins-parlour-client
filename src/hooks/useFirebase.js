@@ -8,6 +8,7 @@ initializeFirebase();
 
 export const useFirebase = () => {
     const [user, setUser] = useState({})
+    const [isDarkTheme, setIsDarkTheme] = useState(true);
 
     const auth = getAuth();
 
@@ -73,6 +74,8 @@ export const useFirebase = () => {
     return {
         user,
         googleSignInHandler,
+        isDarkTheme, 
+        setIsDarkTheme,
         createUserWithEmailHandler,
         signUserWithEmailHandler,
         signOutHandler

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './HeaderNav.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -9,8 +9,7 @@ import { faLightbulb, faMoon, faUserLarge } from '@fortawesome/free-solid-svg-ic
 import useAuth from '../../../hooks/useAuth';
 
 const HeaderNav = () => {
-    const [isDarkTheme, setIsDarkTheme] = useState(true);
-    const { user } = useAuth();
+    const { user, isDarkTheme, setIsDarkTheme } = useAuth();
     return (
         <>
             <GlobalStyles theme={isDarkTheme ? darkTheme : lightTheme} />
@@ -24,8 +23,9 @@ const HeaderNav = () => {
                         <Nav className="ms-auto my-2 my-lg-0">
                             <Link to="/home" className="link-style" >Home</Link>
                             <Link to="/services" className="link-style" >Services</Link>
-                            <Link to="/orders" className="link-style" >Orders</Link>
-                            <Link to="/home" className="link-style" >Contact Us</Link>
+                            <Link to="/orders/bookingList" className="link-style" >Orders</Link>
+                            <Link to="/contact" className="link-style" >Contact Us</Link>
+                            <Link to="/admin/orderList" className="link-style" >Admin</Link>
                             {user?.email ?
                                 <Link to="/profile" style={{ textDecoration: 'none' }} >
                                     <button className="btn" style={{ background: '#f21679', color: 'white' }}> <FontAwesomeIcon icon={faUserLarge} /> </button>

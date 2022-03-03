@@ -1,5 +1,5 @@
 import React from 'react';
-import Review from './Review';
+import Reviews from './Reviews';
 
 const allReviews = [
     {
@@ -34,7 +34,7 @@ const Testimonials = () => {
             <h1 style={{textAlign: 'center', fontWeight: '800'}}>Reviews</h1>
             <div className='row mt-4'>
                 {
-                    allReviews.map(review => <Review key={review.id} review={review}></Review>)
+                    allReviews.map(review => <Reviews key={review.id} review={review}></Reviews>)
                 }
             </div>
         </div>

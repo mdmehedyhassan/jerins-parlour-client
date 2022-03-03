@@ -1,0 +1,16 @@
+ul{
+    list-style-type: none;
+}
+ul li {
+    width: 120px;
+    padding: 10px 2px;
+}
+ul li:hover{
+    background-color: rgb(223, 196, 196);
+}
+.orders-link-style{
+    text-decoration: none;
+}
+.orders-link-style:hover{
+    color: #f21679;
+}
