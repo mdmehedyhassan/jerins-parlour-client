@@ -9,6 +9,9 @@ import HeaderNav from '../../Share/HeaderNav/HeaderNav';
 const Login = () => {
     const { googleSignInHandler, signUserWithEmailHandler } = useAuth();
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    
+    
+
     const onSubmit = data => {
         signUserWithEmailHandler(data.email, data.password);
         reset();

@@ -1,0 +1,27 @@
+#adminTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #adminTable td, #adminTable th {
+    border: 1px solid gray;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #adminTable tr:nth-child(even){background-color: #6e870056;}
+  
+  #adminTable tr:hover {
+    background-color: #6e8700;
+    color: white;
+  }
+  
+  #adminTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #6e8700;
+    color: white;
+  }
+  

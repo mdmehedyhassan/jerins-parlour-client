@@ -35,7 +35,7 @@ const Testimonials = () => {
                     >
                         {
                             currentNumber === number ? 
-                            <FontAwesomeIcon style={{ margin: '3px', color: 'gold' }} icon={faCircleDot} />
+                            <FontAwesomeIcon style={{ margin: '3px', color: '#f21679' }} icon={faCircleDot} />
                             :
                             <FontAwesomeIcon style={{ margin: '3px' }} icon={faCircle} />
                         }

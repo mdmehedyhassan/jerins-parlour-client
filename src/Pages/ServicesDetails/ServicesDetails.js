@@ -6,7 +6,7 @@ import Services from '../Share/Services/Services';
 const ServicesDetails = () => {
     document.title = 'Services';
     return (
-        <div>
+        <div className="container">
             <HeaderNav/>
             <Services/>
             <br />

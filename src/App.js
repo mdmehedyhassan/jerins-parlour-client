@@ -26,8 +26,8 @@ function App() {
         <Route element={<AdminPrivateRoute/>}>
           <Route path="admin/*" element={<Admin/>}/>
         </Route>
-        <Route path="login" element={<Login />} />
         <Route path="contact" element={<ContactUs />} />
+        <Route path="login" element={<Login />} />
         <Route path="registered" element={<Registered />} />
       </Routes>
     </AuthProvider>

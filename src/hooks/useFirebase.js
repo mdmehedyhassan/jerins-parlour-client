@@ -1,6 +1,7 @@
 import initializeFirebase from "../Pages/Login/Login/Firebase/firebase.init"
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // initialize Firebase;
 initializeFirebase();
@@ -9,6 +10,8 @@ initializeFirebase();
 export const useFirebase = () => {
     const [user, setUser] = useState({})
     const [isDarkTheme, setIsDarkTheme] = useState(true);
+    const navigate = useNavigate();
+    const location = useLocation();
 
     const auth = getAuth();
 
@@ -16,39 +19,42 @@ export const useFirebase = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                console.log(result)
+                if (location.pathname === '/login') {
+                    navigate('/');
+                }
             }).catch((error) => {
-                console.log(error)
             });
     };
     const createUserWithEmailHandler = (name, email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                console.log(result)
+                if (location.pathname === '/login') {
+                    navigate('/');
+                }
                 updateUser(name)
             })
             .catch((error) => {
-                console.log(error)
             });
     };
 
     const signUserWithEmailHandler = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                console.log(result)
+                
+                if (location.pathname === '/login') {
+                    navigate('/');
+                }
             })
             .catch((error) => {
-                console.log(error)
             });
     };
 
     const signOutHandler = () => {
         signOut(auth).then(() => {
             setUser({})
-          }).catch((error) => {
-            
-          });
-          
+        }).catch((error) => {
+        });
+
     }
 
     const updateUser = (name) => {
@@ -74,7 +80,7 @@ export const useFirebase = () => {
     return {
         user,
         googleSignInHandler,
-        isDarkTheme, 
+        isDarkTheme,
         setIsDarkTheme,
         createUserWithEmailHandler,
         signUserWithEmailHandler,

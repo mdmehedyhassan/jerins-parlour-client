@@ -1,7 +1,7 @@
 import React from 'react';
 import './HeaderNav.css';
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import jerinLogo from '../../../Icon/jerinLogo.png';
 import { darkTheme, GlobalStyles, lightTheme } from '../../../theme/theme';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,6 +10,7 @@ import useAuth from '../../../hooks/useAuth';
 
 const HeaderNav = () => {
     const { user, isDarkTheme, setIsDarkTheme } = useAuth();
+    const location = useLocation();
     return (
         <>
             <GlobalStyles theme={isDarkTheme ? darkTheme : lightTheme} />
@@ -21,10 +22,10 @@ const HeaderNav = () => {
                     <Navbar.Toggle style={{ backgroundColor: '#f21679' }} aria-controls="navbarScroll" />
                     <Navbar.Collapse className="text-end" id="navbarScroll">
                         <Nav className="ms-auto my-2 my-lg-0">
-                            <Link to="/home" className="link-style" >Home</Link>
-                            <Link to="/services" className="link-style" >Services</Link>
+                            <Link to="/home" className={location.pathname === "/home"? 'text-danger' : "link-style" } >Home</Link>
+                            <Link to="/services" className={location.pathname === "/services"? 'text-danger' : "link-style" } >Services</Link>
                             <Link to="/orders/bookingList" className="link-style" >Orders</Link>
-                            <Link to="/contact" className="link-style" >Contact Us</Link>
+                            <Link to="/contact" className={location.pathname === "/contact"? 'text-danger' : "link-style" }>Contact Us</Link>
                             <Link to="/admin/orderList" className="link-style" >Admin</Link>
                             {user?.email ?
                                 <Link to="/profile" style={{ textDecoration: 'none' }} >

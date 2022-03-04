@@ -40,7 +40,7 @@ const Review = () => {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="name">Name</label>
                     <input defaultValue={user?.displayName} {...register("name")} className="form-control" placeholder="Name" />
-                    {errors.email && <p style={{ color: '#f21679' }}>Name field is required</p>}
+                    {errors.name && <p style={{ color: '#f21679' }}>Name field is required</p>}
 
                     <label htmlFor="email">Email</label>
                     <input defaultValue={user?.email} {...register("email", { required: true })} className="form-control" placeholder="Email" />
@@ -54,10 +54,8 @@ const Review = () => {
                     <textarea {...register("review", { required: true })} className="form-control" placeholder="Your Review"></textarea>
                     {errors.phone && <p style={{ color: '#f21679' }}>Review field is required</p>}
 
-                    <input type="submit" value="Review" style={{ background: '#f21679', color: 'white' }} className="form-control w-50 mt-3" />
-
+                    <input type="submit" value="Review" style={{ background: '#f21679', color: 'white' }} className="form-control mt-3" />
                 </form>
-
             </div>
         </div>
     );

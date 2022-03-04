@@ -5,14 +5,14 @@ import { darkTheme, GlobalStyles, lightTheme } from '../../../theme/theme';
 import jerinLogo from '../../../Icon/jerinLogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping, faCartShopping, faCommentDots } from '@fortawesome/free-solid-svg-icons';
-import { Link, Route, Routes } from 'react-router-dom';
+import { Link, Route, Routes, useLocation } from 'react-router-dom';
 import Book from '../Book/Book';
 import BookingList from '../BookingList/BookingList';
 import Review from '../Review/Review';
 
 const Orders = () => {
     const { isDarkTheme } = useAuth();
-    document.title = "Orders";
+    const location = useLocation();
     return (
         <div className="container">
             <GlobalStyles theme={isDarkTheme ? darkTheme : lightTheme} />
@@ -24,17 +24,17 @@ const Orders = () => {
                                 <img style={{ width: '40px' }} src={jerinLogo} alt="" />
                             </li>
                         </Link>
-                        <Link to="book" className="orders-link-style">
-                            <li>
-                                <FontAwesomeIcon icon={faCartShopping} /> Book
-                            </li>
+                        <Link to="/services" className="orders-link-style" >
+                        <li>
+                            <FontAwesomeIcon icon={faCartShopping} /> Book
+                        </li>
                         </Link>
-                        <Link to="bookingList" className="orders-link-style">
+                        <Link to="bookingList" className={location.pathname === "/orders/bookingList"? 'text-danger' : "orders-link-style" }>
                             <li>
                                 <FontAwesomeIcon icon={faBasketShopping} /> Booking List
                             </li>
                         </Link>
-                        <Link to="review" className="orders-link-style">
+                        <Link to="review" className={location.pathname === "/orders/review"? 'text-danger' : "orders-link-style" }>
                             <li>
                                 <FontAwesomeIcon icon={faCommentDots} /> Review
                             </li>
@@ -43,7 +43,7 @@ const Orders = () => {
                 </div>
                 <div className="col-xxl-10 col-9 orders-main-style">
                     <Routes>
-                        <Route path="book" element={<Book />} />
+                        <Route path="book/:bookId" element={<Book />} />
                         <Route path="bookingList" element={<BookingList />} />
                         <Route path="review" element={<Review />} />
                     </Routes>

@@ -1,0 +1,27 @@
+#servicesTable {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  #servicesTable td, #servicesTable th {
+    border: 1px solid gray;
+    padding: 8px;
+    text-align: center;
+  }
+  
+  #servicesTable tr:nth-child(even){background-color: #009c1a69;}
+  
+  #servicesTable tr:hover {
+    background-color: #009c1a;
+    color: white;
+  }
+  
+  #servicesTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #009c1a;
+    color: white;
+  }
+  
