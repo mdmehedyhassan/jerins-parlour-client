@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import useAuth from '../../../hooks/useAuth';
 
 const Contact = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -7,7 +8,7 @@ const Contact = () => {
         console.log(data);
         reset();
     };
-
+    const {user} = useAuth();
     return (
         <div className="container background-style pt-5 pb-5">
             <h2 className="text-center mb-4">Contact Us</h2>
@@ -15,12 +16,12 @@ const Contact = () => {
                 <div className="row">
                     <div className="col-md-6">
                         <label htmlFor="name">Name</label>
-                        <input {...register("name")} className="form-control" placeholder="Name" />
+                        <input defaultValue={user?.displayName} {...register("name")} className="form-control" placeholder="Name" />
                     </div>
 
                     <div className="col-md-6 ">
                         <label htmlFor="email">Email</label>
-                        <input {...register("email", { required: true })} className="form-control" placeholder="Email" />
+                        <input defaultValue={user?.email} {...register("email", { required: true })} className="form-control" placeholder="Email" />
                         {errors.email && <span style={{ color: '#f21679' }}>This field is required</span>}
                     </div>
 

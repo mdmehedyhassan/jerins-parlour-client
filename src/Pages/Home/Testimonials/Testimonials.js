@@ -1,42 +1,48 @@
-import React from 'react';
+import { faCircle, faCircleDot } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import Reviews from './Reviews';
 
-const allReviews = [
-    {
-        id: 1,
-        img: '',
-        name: 'Nash Patrik',
-        profession: 'CEO, Manpol',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque iusto consequatur provident dolor mollitia delectus libero dignissimos nihil, eveniet magni?',
-        star: 5
-    },
-    {
-        id: 2,
-        img: '',
-        name: 'Nash Patrik',
-        profession: 'CEO, Manpol',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque iusto consequatur provident dolor mollitia delectus libero dignissimos nihil, eveniet magni?',
-        star: 3
-    },
-    {
-        id: 3,
-        img: '',
-        name: 'Nash Patrik',
-        profession: 'CEO, Manpol',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque iusto consequatur provident dolor mollitia delectus libero dignissimos nihil, eveniet magni?',
-        star: 4
-    }
-
-]
 const Testimonials = () => {
+    const [reviews, setReviews] = useState([]);
+    const [currentNumber, setCurrentNumber] = useState(0);
+    const [page, setPage] = useState(1);
+    useEffect(() => {
+        axios(`http://localhost:5000/reviews?skip=${currentNumber}`)
+            .then(res => {
+                setReviews(res.data?.result)
+                const getCount = res.data?.count;
+                const pageCount = getCount / 3;
+                const pageCountCeil= Math.ceil(pageCount)
+                setPage(pageCountCeil)
+            })
+
+    }, [currentNumber]);
     return (
         <div className="container mt-5 mb-5">
-            <h1 style={{textAlign: 'center', fontWeight: '800'}}>Reviews</h1>
+            <h1 style={{ textAlign: 'center', fontWeight: '800' }}>Reviews</h1>
             <div className='row mt-4'>
                 {
-                    allReviews.map(review => <Reviews key={review.id} review={review}></Reviews>)
+                    reviews.map(review => <Reviews key={review._id} review={review}></Reviews>)
                 }
             </div>
+            <h2 style={{ textAlign: 'center', marginTop: '20px' }}>
+                {
+                    [...Array(page).keys()].map(number => <span
+                        key={number}
+                        onClick={() => setCurrentNumber(number)}
+                    >
+                        {
+                            currentNumber === number ? 
+                            <FontAwesomeIcon style={{ margin: '3px', color: 'gold' }} icon={faCircleDot} />
+                            :
+                            <FontAwesomeIcon style={{ margin: '3px' }} icon={faCircle} />
+                        }
+
+                    </span>)
+                }
+            </h2>
         </div>
     );
 };

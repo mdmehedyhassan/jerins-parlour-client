@@ -2,9 +2,25 @@ import React from 'react';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { Link } from 'react-router-dom';
+import { useForm } from "react-hook-form";
+import axios from 'axios';
 
 const MakeAdmin = () => {
     document.title = "Make Admin";
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        axios.post('http://localhost:5000/admins', data)
+        .then(res => {
+            if(res.data.insertedId){
+                alert('Admin Added successfully!')
+                reset();
+            }
+            if(!res.data.insertedId){
+                alert('Something went wrong Please try again.')
+            }
+        })
+    };
+
     return (
         <div>
             <div className="d-flex justify-content-between">
@@ -14,7 +30,13 @@ const MakeAdmin = () => {
                 </Link>
             </div>
             <div className="admin-orders-global-style">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam ullam, voluptate dicta ab a molestiae quos nulla natus illum veniam nam iste possimus quae vero dignissimos fugiat maiores accusamus ut?
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <label htmlFor="email">Email</label>
+                    <input type="email" {...register("email", { required: true })} className="form-control " placeholder="example@gmail.com"/>
+                    {errors.email && <span>Email field is required</span>}
+
+                    <input type="submit" className="btn mt-3" style={{backgroundColor: '#f21679', color: "white" }} value="Make Admin" />
+                </form>
             </div>
         </div>
     );

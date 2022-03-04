@@ -1,24 +1,28 @@
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faCircleUser, faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 
 const Reviews = (props) => {
-    const { img, name, profession, description, star } = props.review;
+    const { img, name, email, review, star } = props.review;
+    const starNumber = parseInt(star)
     return (
         <div className="col-md-4 service-styled">
             <div className="p-3 d-flex align-items-center">
-                <h1>Img</h1>
+                {
+                    img ? <img style={{width: '100px', borderRadius: '50%'}} src={img} alt="" /> : 
+                    <h1 style={{width: '100px', borderRadius: '50%'}}><FontAwesomeIcon icon={faCircleUser}/></h1>
+                }
                 <div className="ms-2">
                     <h4>{name}</h4>
-                    <h5>{profession}</h5>
+                    <p><small>{email}</small></p>
                 </div>
             </div>
-            <p>{description}</p>
+            <p style={{textAlign: 'justify'}}>{review}</p>
             {
-                [...Array(star).keys()].map(number => <FontAwesomeIcon key={number} style={{color: 'gold'}} icon={faStar} />)
+                [...Array(starNumber).keys()].map(number => <FontAwesomeIcon key={number} style={{color: 'gold'}} icon={faStar} />)
             }
             {
-                [...Array(5 - star).keys()].map(number => <FontAwesomeIcon key={number} style={{color: 'gray'}}  icon={faStar} />)
+                [...Array(5 - starNumber).keys()].map(number => <FontAwesomeIcon key={number} style={{color: 'gray'}}  icon={faStar} />)
             }
         </div>
     );

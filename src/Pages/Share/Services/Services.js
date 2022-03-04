@@ -1,42 +1,27 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import antiAgeFace from '../../../Icon/anti-age-face.png';
-import hairColor from '../../../Icon/hair-color.png';
-import skinCare from '../../../Icon/skin-care.png';
 import Service from './Service';
 
-const allServices = [
-    {
-        id: 1,
-        img: antiAgeFace,
-        service: 'Anti Age Face Treatment',
-        price: 199,
-        description: 'We craft stunning adn amazing web UL, using a wll drrafted Ux to fix your product.'
-    },
-    {
-        id: 2,
-        img: hairColor,
-        service: 'Hair Color & styleing',
-        price: 99,
-        description: 'Amazing flyers, social media posts and brand representations that would make your brand stand out.'
-    },
-    {
-        id: 3,
-        img: skinCare,
-        service: 'Skin Care Treatment',
-        price: 299,
-        description: 'With well written codes, we build amazing apps for all platforms, mobile and web apps in general.'
-    }
-];
-
 const Services = () => {
-
+    const [services, setServices] = useState([]);
+    useEffect(() => {
+        if(document.title === "Jerin's Parlour"){
+            axios('http://localhost:5000/services?summary=3')
+            .then(res => setServices(res.data))
+        }
+        if(document.title === "Services"){
+            axios('http://localhost:5000/services')
+            .then(res => setServices(res.data))
+        }
+        
+    },[])
     return (
         <div className="container" style={{ textAlign: "center", marginTop: '100px' }}>
             <h2 style={{ fontWeight: '800' }}>Our Awesome <span style={{ color: '#f21679' }}>Services</span></h2>
             <div className="row mt-5">
                 {
-                    allServices.map(service => <Service key={service.id} service={service}></Service>)
+                    services.map(service => <Service key={service._id} service={service}></Service>)
                 }
             </div>
             {
