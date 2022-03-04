@@ -15,7 +15,7 @@ const Review = () => {
         const getData = {...data};
         getData.img = user?.photoURL;
         
-        axios.post('http://localhost:5000/reviews', getData)
+        axios.post('https://whispering-woodland-02622.herokuapp.com/reviews', getData)
         .then(res => {
             if(res.data.insertedId){
                 alert('Service Added successfully!')

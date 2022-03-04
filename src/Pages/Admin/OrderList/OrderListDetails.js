@@ -4,7 +4,7 @@ import React from 'react';
 const OrderListDetails = (props) => {
     const { _id, name, email, title, status } = props.order;
     const updateOrderHandler = (id) => {
-        axios.put(`http://localhost:5000/orderUpdate/${id}`)
+        axios.put(`https://whispering-woodland-02622.herokuapp.com/orderUpdate/${id}`)
             .then(res => {
                 if(res.status === 200){
                     window.location.reload();

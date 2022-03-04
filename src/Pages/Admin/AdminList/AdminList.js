@@ -10,7 +10,7 @@ const AdminList = () => {
     document.title = "Admin List";
     const [admins, setAdmins] = useState([]);
     useEffect(() => {
-        axios('http://localhost:5000/admins')
+        axios('https://whispering-woodland-02622.herokuapp.com/admins')
         .then(res => setAdmins(res.data))
     },[])
     return (

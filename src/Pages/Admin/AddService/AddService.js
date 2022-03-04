@@ -10,7 +10,7 @@ const AddService = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
         console.log(data);
-        axios.post(`http://localhost:5000/services`, (data))
+        axios.post(`https://whispering-woodland-02622.herokuapp.com/services`, (data))
         .then(res => {
             if(res.data.insertedId){
                 alert('Service Added successfully!')

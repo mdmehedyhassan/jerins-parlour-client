@@ -11,7 +11,7 @@ const BookingList = () => {
     const { user } = useAuth();
     const [bookingList, setBookingList] = useState([]);
     useEffect(() => {
-        axios(`http://localhost:5000/bookings?email=${user?.email}`)
+        axios(`https://whispering-woodland-02622.herokuapp.com/bookings?email=${user?.email}`)
             .then(res => setBookingList(res.data))
     }, [user?.email])
     return (

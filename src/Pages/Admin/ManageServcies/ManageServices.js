@@ -10,12 +10,12 @@ const ManageServices = () => {
     document.title = "Manage Services";
     const [manageServices, setManageServices] = useState([]);
     useEffect(() => {
-        axios('http://localhost:5000/orderList')
+        axios('https://whispering-woodland-02622.herokuapp.com/orderList')
             .then(res => setManageServices(res.data))
     }, []);
    
     const deleteOrderHandler = (id) => {
-        axios.delete(`http://localhost:5000/orderDelete/${id}`)
+        axios.delete(`https://whispering-woodland-02622.herokuapp.com/orderDelete/${id}`)
             .then(res => {
                 if (res.status === 200) {
                     window.location.reload();

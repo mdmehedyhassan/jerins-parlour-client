@@ -9,7 +9,7 @@ const MakeAdmin = () => {
     document.title = "Make Admin";
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
-        axios.post('http://localhost:5000/admins', data)
+        axios.post('https://whispering-woodland-02622.herokuapp.com/admins', data)
         .then(res => {
             if(res.data.insertedId){
                 alert('Admin Added successfully!')

@@ -7,11 +7,11 @@ const Services = () => {
     const [services, setServices] = useState([]);
     useEffect(() => {
         if(document.title === "Jerin's Parlour"){
-            axios('http://localhost:5000/services?summary=3')
+            axios('https://whispering-woodland-02622.herokuapp.com/services?summary=3')
             .then(res => setServices(res.data))
         }
         if(document.title === "Services"){
-            axios('http://localhost:5000/services')
+            axios('https://whispering-woodland-02622.herokuapp.com/services')
             .then(res => setServices(res.data))
         }
         

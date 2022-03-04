@@ -11,10 +11,9 @@ const Book = () => {
     const { user } = useAuth();
     const { bookId } = useParams();
     const [bookData, setBookData] = useState();
-    console.log(bookData);
-
+    
     useEffect(() => {
-        axios(`http://localhost:5000/book/${bookId}`)
+        axios(`https://whispering-woodland-02622.herokuapp.com/book/${bookId}`)
             .then(res => setBookData(res?.data));
     }, [bookId]);
 
@@ -26,7 +25,7 @@ const Book = () => {
         getData.description = bookData.description;
         getData.price = bookData.price;
         getData.status = 'Pending';
-        axios.post('http://localhost:5000/bookings', getData)
+        axios.post('https://whispering-woodland-02622.herokuapp.com/bookings', getData)
             .then(res => {
                 if (res.data.insertedId) {
                     alert('Booking successfully!')

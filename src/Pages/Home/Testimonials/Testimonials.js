@@ -9,7 +9,7 @@ const Testimonials = () => {
     const [currentNumber, setCurrentNumber] = useState(0);
     const [page, setPage] = useState(1);
     useEffect(() => {
-        axios(`http://localhost:5000/reviews?skip=${currentNumber}`)
+        axios(`https://whispering-woodland-02622.herokuapp.com/reviews?skip=${currentNumber}`)
             .then(res => {
                 setReviews(res.data?.result)
                 const getCount = res.data?.count;

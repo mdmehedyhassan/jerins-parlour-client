@@ -10,7 +10,7 @@ const OrderList = () => {
     document.title = "Order List";
     const [orderList, setOrderList] = useState([]);
     useEffect(() => {
-        axios('http://localhost:5000/orderList')
+        axios('https://whispering-woodland-02622.herokuapp.com/orderList')
             .then(res => setOrderList(res.data))
     }, []);
     
