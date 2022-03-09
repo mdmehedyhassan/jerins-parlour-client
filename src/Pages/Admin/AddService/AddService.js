@@ -29,7 +29,7 @@ const AddService = () => {
                     <button className="btn" style={{ background: '#f21679', color: 'white' }}><FontAwesomeIcon icon={faUser} /></button>
                 </Link>
             </div>
-            <div className="admin-orders-global-style">
+            <div className="">
                 <div className="p-5 d-flex justify-content-center">
                     <form onSubmit={handleSubmit(onSubmit)} className="login-field-style">
                         <div className="row">

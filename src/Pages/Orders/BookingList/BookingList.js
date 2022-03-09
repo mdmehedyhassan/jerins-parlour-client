@@ -22,7 +22,7 @@ const BookingList = () => {
                     <button className="btn" style={{ background: '#f21679', color: 'white' }}><FontAwesomeIcon icon={faUser} /></button>
                 </Link>
             </div>
-            <div className="admin-orders-global-style">
+            <div className="">
                 <div className="row">
                     {
                         bookingList.map(book => <BookingListDetails key={book._id} book={book}></BookingListDetails>)

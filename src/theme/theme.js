@@ -20,11 +20,7 @@ export const GlobalStyles = createGlobalStyle`
         background-color: ${props => props.theme.bodyBackgroundColor};
         color: ${props => props.theme.bodyColor};
     }
-    .admin-orders-global-style{
-        padding: 10px;
-        background-color: ${props => props.theme.bodyColor};
-        color: ${props => props.theme.bodyBackgroundColor};
-    }
+    
     .link-style, .orders-link-style{
         color: ${props => props.theme.bodyColor};
     }

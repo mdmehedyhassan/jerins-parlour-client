@@ -36,7 +36,7 @@ const Review = () => {
                     <button className="btn" style={{ background: '#f21679', color: 'white' }}><FontAwesomeIcon icon={faUser} /></button>
                 </Link>
             </div>
-            <div className="admin-orders-global-style">
+            <div className="">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="name">Name</label>
                     <input defaultValue={user?.displayName} {...register("name")} className="form-control" placeholder="Name" />

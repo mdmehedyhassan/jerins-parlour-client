@@ -47,7 +47,7 @@ const Book = () => {
                 </Link>
             </div>
 
-            <div className="admin-orders-global-style">
+            <div className="">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <h4><small style={{color:'gray'}}>Service Name:</small> {bookData?.title}</h4>
                     <p><small style={{color:'gray'}}>Price:</small> ${bookData?.price}</p>

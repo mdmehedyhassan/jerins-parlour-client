@@ -29,7 +29,7 @@ const MakeAdmin = () => {
                     <button className="btn" style={{ background: '#f21679', color: 'white' }}><FontAwesomeIcon icon={faUser} /></button>
                 </Link>
             </div>
-            <div className="admin-orders-global-style">
+            <div className="">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <label htmlFor="email">Email</label>
                     <input type="email" {...register("email", { required: true })} className="form-control " placeholder="example@gmail.com"/>

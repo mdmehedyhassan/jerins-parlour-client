@@ -6,23 +6,27 @@ const Reviews = (props) => {
     const { img, name, email, review, star } = props.review;
     const starNumber = parseInt(star)
     return (
-        <div className="col-md-4 service-styled">
+        <div
+            data-aos="flip-left"
+            data-aos-easing="ease-out-cubic"
+            data-aos-duration="2000"
+            className="col-md-4 service-styled">
             <div className="p-3 d-flex align-items-center">
                 {
-                    img ? <img style={{width: '100px', borderRadius: '50%'}} src={img} alt="" /> : 
-                    <h1 style={{width: '100px', borderRadius: '50%'}}><FontAwesomeIcon icon={faCircleUser}/></h1>
+                    img ? <img style={{ width: '100px', borderRadius: '50%' }} src={img} alt="" /> :
+                        <h1 style={{ width: '100px', borderRadius: '50%' }}><FontAwesomeIcon icon={faCircleUser} /></h1>
                 }
                 <div className="ms-2">
-                    <h4>{name}</h4>
+                    <h4 style={{color: '#f21679', fontWeight: '700'}}>{name}</h4>
                     <p><small>{email}</small></p>
                 </div>
             </div>
-            <p style={{textAlign: 'justify'}}>{review}</p>
+            <p style={{ textAlign: 'justify' }}>{review}</p>
             {
-                [...Array(starNumber).keys()].map(number => <FontAwesomeIcon key={number} style={{color: 'gold'}} icon={faStar} />)
+                [...Array(starNumber).keys()].map(number => <FontAwesomeIcon key={number} style={{ color: 'gold' }} icon={faStar} />)
             }
             {
-                [...Array(5 - starNumber).keys()].map(number => <FontAwesomeIcon key={number} style={{color: 'gray'}}  icon={faStar} />)
+                [...Array(5 - starNumber).keys()].map(number => <FontAwesomeIcon key={number} style={{ color: 'gray' }} icon={faStar} />)
             }
         </div>
     );

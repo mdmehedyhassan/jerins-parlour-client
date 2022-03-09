@@ -12,6 +12,9 @@ import ContactUs from './Pages/ContactUs/ContactUs';
 import AdminPrivateRoute from './Pages/PrivateRoute/AdminPrivateRoute';
 import Admin from './Pages/Admin/Admin/Admin';
 import LoginPrivateRoute from './Pages/PrivateRoute/LoginPrivateRoute';
+import AOS from 'aos';
+
+AOS.init();
 
 function App() {
   return (

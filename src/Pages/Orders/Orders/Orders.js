@@ -14,7 +14,7 @@ const Orders = () => {
     const { isDarkTheme } = useAuth();
     const location = useLocation();
     return (
-        <div className="container">
+        <div className="container" style={{ color: '#f21679', fontWeight: '700'}}>
             <GlobalStyles theme={isDarkTheme ? darkTheme : lightTheme} />
             <div className="row">
                 <div className="col-xxl-2 col-lg-3 col-12 text-lg-start text-center">
