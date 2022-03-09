@@ -21,7 +21,7 @@ const Testimonials = () => {
     }, [currentNumber]);
     return (
         <div className="container mt-5 mb-5">
-            <h1 style={{ textAlign: 'center', fontWeight: '800' }}>Reviews</h1>
+            <h1 style={{ textAlign: 'center', fontWeight: '800', color: '#f21679'}}>Reviews</h1>
             <div className='row mt-4'>
                 {
                     reviews.map(review => <Reviews key={review._id} review={review}></Reviews>)

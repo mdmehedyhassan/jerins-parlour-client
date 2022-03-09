@@ -18,11 +18,11 @@ const Admin = () => {
         <div className="container">
             <GlobalStyles theme={isDarkTheme ? darkTheme : lightTheme} />
             <div className="row">
-                <div className="col-xxl-2 col-3">
-                    <ul>
-                        <Link to="/">
+                <div className="col-xxl-2 col-lg-3 col-12 text-lg-start text-center">
+                    <ul className="mt-2 d-flex flex-lg-column">
+                        <Link to="/" className="orders-link-style">
                             <li >
-                                <img style={{ width: '40px' }} src={jerinLogo} alt="" />
+                                <img style={{ width: '30px' }} src={jerinLogo} alt="" /> Home
                             </li>
                         </Link>
                         <Link to="orderList" className={location.pathname === "/admin/orderList"? 'text-danger' : "orders-link-style" }>
@@ -52,7 +52,7 @@ const Admin = () => {
                         </Link>
                     </ul>
                 </div>
-                <div className="col-xxl-10 col-9 orders-main-style">
+                <div className="col-xxl-10 col-lg-9 col-12 orders-main-style mt-3">
                     <Routes>
                         <Route path="orderList" element={<OrderList />} />
                         <Route path="addService" element={<AddService />} />

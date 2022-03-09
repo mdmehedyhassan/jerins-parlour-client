@@ -1,5 +1,5 @@
 import React from 'react';
-import './Orders.css'
+import './Orders.css';
 import useAuth from '../../../hooks/useAuth';
 import { darkTheme, GlobalStyles, lightTheme } from '../../../theme/theme';
 import jerinLogo from '../../../Icon/jerinLogo.png';
@@ -17,11 +17,11 @@ const Orders = () => {
         <div className="container">
             <GlobalStyles theme={isDarkTheme ? darkTheme : lightTheme} />
             <div className="row">
-                <div className="col-xxl-2 col-3">
-                    <ul>
-                        <Link to="/">
+                <div className="col-xxl-2 col-lg-3 col-12 text-lg-start text-center">
+                    <ul className="mt-2 d-flex flex-lg-column">
+                        <Link to="/" className="orders-link-style">
                             <li >
-                                <img style={{ width: '40px' }} src={jerinLogo} alt="" />
+                                <img style={{ width: '30px' }} src={jerinLogo} alt="" /> Home
                             </li>
                         </Link>
                         <Link to="/services" className="orders-link-style" >
@@ -41,7 +41,7 @@ const Orders = () => {
                         </Link>
                     </ul>
                 </div>
-                <div className="col-xxl-10 col-9 orders-main-style">
+                <div className="col-xxl-10 col-lg-9 col-12 orders-main-style mt-3">
                     <Routes>
                         <Route path="book/:bookId" element={<Book />} />
                         <Route path="bookingList" element={<BookingList />} />

@@ -11,6 +11,7 @@ import ServicesDetails from './Pages/ServicesDetails/ServicesDetails';
 import ContactUs from './Pages/ContactUs/ContactUs';
 import AdminPrivateRoute from './Pages/PrivateRoute/AdminPrivateRoute';
 import Admin from './Pages/Admin/Admin/Admin';
+import LoginPrivateRoute from './Pages/PrivateRoute/LoginPrivateRoute';
 
 function App() {
   return (
@@ -23,12 +24,16 @@ function App() {
           <Route path="orders/*" element={<Orders />} />
           <Route path="services" element={<ServicesDetails />} />
         </Route>
-        <Route element={<AdminPrivateRoute/>}>
-          <Route path="admin/*" element={<Admin/>}/>
+        <Route element={<AdminPrivateRoute />}>
+          <Route path="admin/*" element={<Admin />} />
+        </Route>
+        <Route element={<LoginPrivateRoute />}>
+          <Route path="login" element={<Login />} />
+          <Route path="registered" element={<Registered />} />
         </Route>
         <Route path="contact" element={<ContactUs />} />
-        <Route path="login" element={<Login />} />
-        <Route path="registered" element={<Registered />} />
+        {/* <Route path="login" element={<Login />} />
+        <Route path="registered" element={<Registered />} /> */}
       </Routes>
     </AuthProvider>
   );

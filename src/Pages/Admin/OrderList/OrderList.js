@@ -17,7 +17,7 @@ const OrderList = () => {
     return (
         <div>
             <div className="d-flex justify-content-between">
-                <h2>Order List</h2>
+                <h2 style={{ color: '#f21679', fontWeight: '900'}}>Order List</h2>
                 <Link to="/profile">
                     <button className="btn" style={{ background: '#f21679', color: 'white' }}><FontAwesomeIcon icon={faUser} /></button>
                 </Link>
@@ -26,7 +26,7 @@ const OrderList = () => {
                 <table id="ordersTable">
                     <tr>
                         <th>Name</th>
-                        <th style={{maxWidth: '120px', overflow: 'auto'}}>Email Id</th>
+                        <th className="email-responsive-order-list">Email Id</th>
                         <th>Service</th>
                         <th>Status</th>
                     </tr>

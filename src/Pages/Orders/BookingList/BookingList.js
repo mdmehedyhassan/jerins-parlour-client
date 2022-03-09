@@ -17,7 +17,7 @@ const BookingList = () => {
     return (
         <div>
             <div className="d-flex justify-content-between">
-                <h2>Booking List</h2>
+                <h2 style={{color: '#f21679', fontWeight: '900'}}>Booking List</h2>
                 <Link to="/profile">
                     <button className="btn" style={{ background: '#f21679', color: 'white' }}><FontAwesomeIcon icon={faUser} /></button>
                 </Link>

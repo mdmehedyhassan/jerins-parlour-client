@@ -1,7 +1,6 @@
 import initializeFirebase from "../Pages/Login/Login/Firebase/firebase.init"
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
 
 // initialize Firebase;
 initializeFirebase();
@@ -10,8 +9,6 @@ initializeFirebase();
 export const useFirebase = () => {
     const [user, setUser] = useState({})
     const [isDarkTheme, setIsDarkTheme] = useState(true);
-    const navigate = useNavigate();
-    const location = useLocation();
 
     const auth = getAuth();
 
@@ -19,18 +16,12 @@ export const useFirebase = () => {
         const provider = new GoogleAuthProvider();
         signInWithPopup(auth, provider)
             .then((result) => {
-                if (location.pathname === '/login') {
-                    navigate('/');
-                }
             }).catch((error) => {
             });
     };
     const createUserWithEmailHandler = (name, email, password) => {
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                if (location.pathname === '/login') {
-                    navigate('/');
-                }
                 updateUser(name)
             })
             .catch((error) => {
@@ -40,10 +31,6 @@ export const useFirebase = () => {
     const signUserWithEmailHandler = (email, password) => {
         signInWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                
-                if (location.pathname === '/login') {
-                    navigate('/');
-                }
             })
             .catch((error) => {
             });

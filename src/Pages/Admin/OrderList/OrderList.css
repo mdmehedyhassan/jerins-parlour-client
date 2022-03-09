@@ -24,3 +24,13 @@
     background-color: #f21679;
     color: white;
   }
+
+  @media only screen and (max-width: 720px) {
+    .email-responsive-order-list {
+      max-width: 120px;
+      overflow: auto;
+    }
+    #ordersTable td, #ordersTable th {
+      padding: 0;
+    }
+  }

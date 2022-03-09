@@ -18,7 +18,7 @@ const OrderListDetails = (props) => {
     return (
         <tr>
             <td>{name}</td>
-            <td>{email}</td>
+            <td className="email-responsive-order-list">{email}</td>
             <td>{title}</td>
             <td >
                 {

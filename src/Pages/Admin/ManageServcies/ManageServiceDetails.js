@@ -4,7 +4,7 @@ const ManageServiceDetails = (props) => {
     const { _id, email, title } = props.service;
     return (
         <tr>
-            <td>{email}</td>
+            <td className="email-responsive-services-list">{email}</td>
             <td>{title}</td>
             <td >
                 <button

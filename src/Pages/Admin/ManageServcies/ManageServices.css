@@ -24,4 +24,12 @@
     background-color: #009c1a;
     color: white;
   }
-  
+  @media only screen and (max-width: 720px) {
+    .email-responsive-services-list {
+      max-width: 160px;
+      overflow: auto;
+    }
+    #servicesTable td, #servicesTable th {
+      padding: 0;
+    }
+  }
