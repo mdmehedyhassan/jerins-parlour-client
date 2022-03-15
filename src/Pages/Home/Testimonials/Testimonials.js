@@ -17,6 +17,11 @@ const Testimonials = () => {
                 const pageCountCeil= Math.ceil(pageCount)
                 setPage(pageCountCeil)
             })
+            .catch(error => {
+                if(window.confirm('Please click OK or reload this page')){
+                    window.location.reload();
+                }
+            })
 
     }, [currentNumber]);
     return (
